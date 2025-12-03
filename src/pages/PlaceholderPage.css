@@ -1,0 +1,34 @@
+.placeholder-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 40px 20px;
+  background: #fafafa;
+}
+
+.placeholder-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.placeholder-content h1 {
+  font-size: 48px;
+  margin: 0 0 16px 0;
+}
+
+.placeholder-content p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+}
+
+.coming-soon {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #eef2ff;
+  color: #6366f1;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -1,0 +1,28 @@
+.today-page {
+  padding: 20px;
+  background: #fafafa;
+  min-height: 100%;
+}
+
+.today-header {
+  margin-bottom: 24px;
+}
+
+.greeting {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.tagline {
+  font-size: 15px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.today-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

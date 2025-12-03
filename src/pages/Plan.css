@@ -1,0 +1,196 @@
+.plan-page {
+  padding: 20px;
+  background: #fafafa;
+  min-height: 100%;
+}
+
+.plan-header {
+  margin-bottom: 24px;
+}
+
+.plan-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.plan-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+.plan-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stage-progress-card,
+.current-stage-card,
+.checkin-history-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+}
+
+.stages-visual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stage-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.stage-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #e5e7eb;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+.stage-circle.active {
+  border-color: #6366f1;
+  background: #6366f1;
+  color: white;
+  transform: scale(1.1);
+}
+
+.stage-circle.completed {
+  border-color: #10b981;
+  background: #10b981;
+  color: white;
+}
+
+.stage-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  text-align: center;
+}
+
+.stage-connector {
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 24px);
+  width: calc(100% - 48px);
+  height: 3px;
+  background: #e5e7eb;
+  z-index: 1;
+}
+
+.stage-connector.completed {
+  background: #10b981;
+}
+
+.current-stage-card {
+  text-align: center;
+}
+
+.stage-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.stage-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.stage-description {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.stage-tips {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
+
+.tips-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px 0;
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tips-list li {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.checkin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkin-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.checkin-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  min-width: 60px;
+}
+
+.checkin-mood {
+  font-size: 20px;
+}
+
+.checkin-note {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+}

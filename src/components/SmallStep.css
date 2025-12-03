@@ -1,0 +1,58 @@
+.small-step-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.step-task {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.task-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.task-text {
+  font-size: 15px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.mark-done-button {
+  width: 100%;
+  padding: 16px;
+  background: white;
+  color: #6366f1;
+  border: 2px solid #6366f1;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mark-done-button:hover {
+  background: #eef2ff;
+}
+
+.mark-done-button.done {
+  background: #6366f1;
+  color: white;
+}
+
+.mark-done-button:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,19 @@
+.current-focus-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.focus-label {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.focus-text {
+  font-size: 16px;
+  color: #1f2937;
+  font-style: italic;
+  font-weight: 400;
+}

@@ -1,0 +1,224 @@
+.me-page {
+  padding: 20px;
+  background: #fafafa;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.me-header {
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.profile-age {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+}
+
+.subscription-badge {
+  display: flex;
+  justify-content: center;
+}
+
+.badge-free,
+.badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-free {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+}
+
+.me-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goal-card,
+.settings-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.goal-text {
+  font-size: 16px;
+  font-style: italic;
+  color: #374151;
+  margin: 0 0 12px 0;
+}
+
+.goal-stage {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.goal-stage strong {
+  color: #6366f1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  color: #6366f1;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.upgrade-cta-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  border: 2px solid #c7d2fe;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.upgrade-icon {
+  color: #fbbf24;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.upgrade-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.upgrade-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.upgrade-button {
+  width: 100%;
+  padding: 14px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upgrade-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #f9fafb;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.settings-item:hover {
+  background: #f3f4f6;
+}
+
+.settings-item.danger {
+  color: #dc2626;
+}
+
+.settings-item.danger:hover {
+  background: #fee2e2;
+}
+
+.settings-item svg {
+  flex-shrink: 0;
+}

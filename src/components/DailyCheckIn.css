@@ -1,0 +1,106 @@
+.daily-checkin-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.checkin-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3730a3;
+  margin: 0 0 16px 0;
+}
+
+.checkin-question {
+  font-size: 15px;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.mood-selector {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.mood-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.mood-button:hover {
+  background: #e5e7eb;
+}
+
+.mood-button.selected {
+  border-color: #6366f1;
+  background: #eef2ff;
+}
+
+.mood-emoji {
+  font-size: 28px;
+}
+
+.mood-label {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 20px 0;
+  min-height: 20px;
+}
+
+.checkin-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: none;
+  background: #f9fafb;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.checkin-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: white;
+}
+
+.checkin-input::placeholder {
+  color: #9ca3af;
+}
+
+.checkin-button {
+  width: 100%;
+  padding: 16px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checkin-button:hover {
+  background: #4f46e5;
+}
+
+.checkin-button:active {
+  background: #4338ca;
+}

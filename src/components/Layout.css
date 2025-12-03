@@ -1,0 +1,40 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 20px;
+}
+
+.mobile-frame {
+  width: 100%;
+  max-width: 430px;
+  height: 932px;
+  background: white;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0;
+  }
+
+  .mobile-frame {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
