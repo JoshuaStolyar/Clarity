@@ -49,58 +49,75 @@
 .focus-edit-mode {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+.focus-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.focus-input {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #6366f1;
-  border-radius: 8px;
-  font-size: 15px;
-  font-family: inherit;
-  color: #1f2937;
-  box-sizing: border-box;
-}
-
-.focus-input:focus {
-  outline: none;
-  border-color: #4f46e5;
-}
-
-.focus-actions {
+.focus-option-card {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
-  justify-content: flex-end;
+  padding: 14px 10px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
 }
 
-.focus-action-button {
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 8px;
+.focus-option-card:hover {
+  background: #f3f4f6;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.focus-option-card.selected {
+  background: #eef2ff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.option-icon {
+  font-size: 24px;
+}
+
+.option-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.3;
+}
+
+.focus-cancel-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.focus-action-button.save {
-  background: #10b981;
-  color: white;
-}
-
-.focus-action-button.save:hover {
-  background: #059669;
-}
-
-.focus-action-button.cancel {
-  background: #f3f4f6;
-  color: #6b7280;
-}
-
-.focus-action-button.cancel:hover {
+.focus-cancel-button:hover {
   background: #e5e7eb;
   color: #374151;
+}
+
+@media (max-width: 480px) {
+  .focus-options-grid {
+    grid-template-columns: 1fr;
+  }
 }
