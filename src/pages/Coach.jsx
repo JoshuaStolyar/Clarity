@@ -82,20 +82,56 @@ function Coach() {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputMessage;
     setInputMessage('');
     setIsTyping(true);
 
-    // Simulate AI response (in production, this would call your AI API)
-    setTimeout(() => {
+    try {
+      // Call the backend API
+      const response = await fetch('http://localhost:3001/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: currentInput,
+          mentorId: selectedMentor,
+          userName: user?.name,
+          currentGoal: currentGoal,
+          conversationHistory: messages
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get response');
+      }
+
       const coachMessage = {
         id: Date.now() + 1,
         sender: 'coach',
-        text: generateMockResponse(inputMessage, selectedMentor),
+        text: data.response,
         timestamp: new Date()
       };
+
       setMessages(prev => [...prev, coachMessage]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+
+      const errorMessage = {
+        id: Date.now() + 1,
+        sender: 'coach',
+        text: error.message.includes('API key')
+          ? "I'm not fully configured yet. The API key needs to be added to the .env file. In the meantime, how can I help you think through your challenge?"
+          : "Sorry, I'm having trouble connecting right now. Please make sure the backend server is running (npm run dev:full) and try again.",
+        timestamp: new Date()
+      };
+
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -195,35 +231,6 @@ function Coach() {
       </div>
     </div>
   );
-}
-
-function generateMockResponse(userMessage, mentorId) {
-  // This is a mock function. In production, integrate with OpenAI/Claude API
-  const responses = {
-    'alex-hormozi': [
-      "Let's cut to the chase. What specific action can you take today that will move the needle?",
-      "Focus on inputs, not outcomes. What are the key metrics you're tracking?",
-      "The best time to start was yesterday. The second best time is now. What's stopping you?"
-    ],
-    'dan-martell': [
-      "That's a great insight! Let's build a system around it. What's your repeatable process?",
-      "Think about leverage. How can you automate or delegate this?",
-      "Buy back your time. What's the highest and best use of your energy right now?"
-    ],
-    'leila-hormozi': [
-      "Let's examine the psychology behind that. What belief is driving this behavior?",
-      "Leadership is about making others better. How are you developing your team?",
-      "What story are you telling yourself about this situation?"
-    ],
-    'general': [
-      "That's an interesting perspective. Tell me more about what's driving that thought.",
-      "I hear you. What do you think would be the best next step?",
-      "Let's break this down. What's the core challenge you're facing?"
-    ]
-  };
-
-  const mentorResponses = responses[mentorId] || responses.general;
-  return mentorResponses[Math.floor(Math.random() * mentorResponses.length)];
 }
 
 export default Coach;

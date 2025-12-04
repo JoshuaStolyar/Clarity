@@ -4,13 +4,9 @@ import { useApp } from '../context/AppContext';
 import './Onboarding.css';
 
 const PRESET_GOALS = [
-  'Figure out what career fits me',
-  'Find my life purpose',
-  'Start a business',
+  'Help me find what I love',
   'Change careers',
-  'Improve my relationships',
-  'Build better habits',
-  'Custom goal...'
+  'Find my life purpose'
 ];
 
 function Onboarding() {
@@ -18,7 +14,6 @@ function Onboarding() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [selectedGoal, setSelectedGoal] = useState('');
-  const [customGoal, setCustomGoal] = useState('');
   const navigate = useNavigate();
   const { completeOnboarding, updateGoal } = useApp();
 
@@ -27,19 +22,15 @@ function Onboarding() {
       setStep(2);
     } else if (step === 2 && age) {
       setStep(3);
-    } else if (step === 3 && (selectedGoal || customGoal)) {
-      const finalGoal = selectedGoal === 'Custom goal...' ? customGoal : selectedGoal;
+    } else if (step === 3 && selectedGoal) {
       completeOnboarding({ name, age });
-      updateGoal(finalGoal);
+      updateGoal(selectedGoal);
       navigate('/');
     }
   };
 
   const handleGoalSelect = (goal) => {
     setSelectedGoal(goal);
-    if (goal !== 'Custom goal...') {
-      setCustomGoal('');
-    }
   };
 
   return (
@@ -124,23 +115,10 @@ function Onboarding() {
               ))}
             </div>
 
-            {selectedGoal === 'Custom goal...' && (
-              <div className="onboarding-form">
-                <input
-                  type="text"
-                  className="form-input"
-                  placeholder="Enter your custom goal"
-                  value={customGoal}
-                  onChange={(e) => setCustomGoal(e.target.value)}
-                  autoFocus
-                />
-              </div>
-            )}
-
             <button
               className="onboarding-button"
               onClick={handleNext}
-              disabled={!selectedGoal || (selectedGoal === 'Custom goal...' && !customGoal.trim())}
+              disabled={!selectedGoal}
             >
               Get Started
             </button>
