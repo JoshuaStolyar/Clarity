@@ -1,0 +1,42 @@
+.daily-inspiration-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid #fbbf24;
+}
+
+.inspiration-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.inspiration-icon {
+  color: #d97706;
+}
+
+.inspiration-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inspiration-quote {
+  font-size: 15px;
+  color: #78350f;
+  line-height: 1.6;
+  margin: 0 0 8px 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.inspiration-author {
+  font-size: 13px;
+  color: #92400e;
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}

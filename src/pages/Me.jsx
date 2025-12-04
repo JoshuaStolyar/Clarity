@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import { Crown, Calendar, Target, TrendingUp, Settings, LogOut } from 'lucide-react';
+import { Crown, Calendar, Target, TrendingUp, Settings, LogOut, BookOpen } from 'lucide-react';
 import './Me.css';
 
 function Me() {
@@ -117,6 +117,10 @@ function Me() {
         <div className="settings-card">
           <h2 className="section-title">Settings</h2>
           <div className="settings-list">
+            <button className="settings-item" onClick={() => navigate('/journal')}>
+              <BookOpen size={20} />
+              <span>My Journal</span>
+            </button>
             <button className="settings-item" onClick={handleUpgrade}>
               <Crown size={20} />
               <span>Manage Subscription</span>

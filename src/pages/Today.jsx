@@ -1,7 +1,11 @@
+import { useState } from 'react';
+import { Settings } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import CurrentFocus from '../components/CurrentFocus';
 import DailyCheckIn from '../components/DailyCheckIn';
 import SmallStep from '../components/SmallStep';
+import DailyInspiration from '../components/DailyInspiration';
+import ProfileModal from '../components/ProfileModal';
 import './Today.css';
 
 const GOAL_STAGE_TASKS = {
@@ -12,6 +16,7 @@ const GOAL_STAGE_TASKS = {
 
 function Today() {
   const { user, currentGoal, goalStage } = useApp();
+  const [showProfileModal, setShowProfileModal] = useState(false);
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -25,18 +30,35 @@ function Today() {
   };
 
   return (
-    <div className="today-page">
-      <header className="today-header">
-        <h1 className="greeting">{getGreeting()}, {user?.name || 'Friend'} 👋</h1>
-        <p className="tagline">Let's move 1% closer to who you want to be.</p>
-      </header>
+    <>
+      <ProfileModal
+        isOpen={showProfileModal}
+        onClose={() => setShowProfileModal(false)}
+      />
+      <div className="today-page">
+        <header className="today-header">
+          <div className="header-content">
+            <div>
+              <h1 className="greeting">{getGreeting()}, {user?.name || 'Friend'} 👋</h1>
+              <p className="tagline">Let's move 1% closer to who you want to be.</p>
+            </div>
+            <button
+              className="settings-button-header"
+              onClick={() => setShowProfileModal(true)}
+            >
+              <Settings size={22} />
+            </button>
+          </div>
+        </header>
 
-      <div className="today-content">
-        <CurrentFocus focus={currentGoal || 'Find your purpose'} />
-        <DailyCheckIn />
-        <SmallStep task={getCurrentTask()} />
+        <div className="today-content">
+          <CurrentFocus focus={currentGoal || 'Find your purpose'} />
+          <DailyInspiration />
+          <DailyCheckIn />
+          <SmallStep task={getCurrentTask()} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,22 +1,57 @@
 .today-page {
-  padding: 20px;
+  padding: 16px;
+  max-width: 600px;
+  margin: 0 auto;
   background: #fafafa;
   min-height: 100%;
 }
 
 .today-header {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.settings-button-header {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.settings-button-header:hover {
+  background: #f9fafb;
+  border-color: #6366f1;
+  color: #6366f1;
+  transform: scale(1.05);
+}
+
+.settings-button-header:active {
+  transform: scale(0.95);
 }
 
 .greeting {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
   color: #1f2937;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .tagline {
-  font-size: 15px;
+  font-size: 14px;
   color: #9ca3af;
   margin: 0;
 }
@@ -24,5 +59,5 @@
 .today-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }

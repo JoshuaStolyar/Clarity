@@ -1,19 +1,106 @@
 .current-focus-card {
   background: white;
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.focus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
 .focus-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #6b7280;
-  margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.focus-edit-button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-edit-button:hover {
+  color: #6366f1;
+  background: #f3f4f6;
 }
 
 .focus-text {
-  font-size: 16px;
+  font-size: 15px;
   color: #1f2937;
   font-style: italic;
   font-weight: 400;
+  line-height: 1.5;
+}
+
+.focus-edit-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.focus-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.focus-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.focus-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.focus-action-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.focus-action-button.save {
+  background: #10b981;
+  color: white;
+}
+
+.focus-action-button.save:hover {
+  background: #059669;
+}
+
+.focus-action-button.cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.focus-action-button.cancel:hover {
+  background: #e5e7eb;
+  color: #374151;
 }

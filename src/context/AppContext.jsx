@@ -24,6 +24,13 @@ export const AppProvider = ({ children }) => {
   const [checkIns, setCheckIns] = useState([]);
   const [selectedMentor, setSelectedMentor] = useState(null);
   const [subscriptionTier, setSubscriptionTier] = useState('free'); // 'free', 'monthly', 'yearly'
+  const [journalEntries, setJournalEntries] = useState([]);
+  const [bookmarkedResources, setBookmarkedResources] = useState([]);
+  const [habits, setHabits] = useState([
+    { id: 1, name: 'Morning reflection', icon: '☀️', completedDates: [] },
+    { id: 2, name: 'Evening gratitude', icon: '🌙', completedDates: [] },
+    { id: 3, name: 'Read 10 pages', icon: '📖', completedDates: [] }
+  ]);
 
   // Load data from localStorage on mount
   useEffect(() => {
@@ -38,6 +45,13 @@ export const AppProvider = ({ children }) => {
         setCheckIns(data.checkIns || []);
         setSelectedMentor(data.selectedMentor || null);
         setSubscriptionTier(data.subscriptionTier || 'free');
+        setJournalEntries(data.journalEntries || []);
+        setBookmarkedResources(data.bookmarkedResources || []);
+        setHabits(data.habits || [
+          { id: 1, name: 'Morning reflection', icon: '☀️', completedDates: [] },
+          { id: 2, name: 'Evening gratitude', icon: '🌙', completedDates: [] },
+          { id: 3, name: 'Read 10 pages', icon: '📖', completedDates: [] }
+        ]);
       } catch (error) {
         console.error('Error loading saved data:', error);
       }
@@ -53,10 +67,13 @@ export const AppProvider = ({ children }) => {
       goalStage,
       checkIns,
       selectedMentor,
-      subscriptionTier
+      subscriptionTier,
+      journalEntries,
+      bookmarkedResources,
+      habits
     };
     localStorage.setItem('clarityAppData', JSON.stringify(dataToSave));
-  }, [user, isOnboarded, currentGoal, goalStage, checkIns, selectedMentor, subscriptionTier]);
+  }, [user, isOnboarded, currentGoal, goalStage, checkIns, selectedMentor, subscriptionTier, journalEntries, bookmarkedResources, habits]);
 
   const completeOnboarding = (userData) => {
     setUser(userData);
@@ -86,6 +103,64 @@ export const AppProvider = ({ children }) => {
     setSubscriptionTier(tier);
   };
 
+  const addJournalEntry = (entryData) => {
+    const newEntry = {
+      id: Date.now(),
+      timestamp: new Date().toISOString(),
+      ...entryData
+    };
+    setJournalEntries([newEntry, ...journalEntries]);
+  };
+
+  const updateJournalEntry = (id, updates) => {
+    setJournalEntries(journalEntries.map(entry =>
+      entry.id === id ? { ...entry, ...updates } : entry
+    ));
+  };
+
+  const deleteJournalEntry = (id) => {
+    setJournalEntries(journalEntries.filter(entry => entry.id !== id));
+  };
+
+  const toggleBookmark = (resource) => {
+    const isBookmarked = bookmarkedResources.some(r => r.id === resource.id);
+    if (isBookmarked) {
+      setBookmarkedResources(bookmarkedResources.filter(r => r.id !== resource.id));
+    } else {
+      setBookmarkedResources([...bookmarkedResources, { ...resource, bookmarkedAt: Date.now() }]);
+    }
+  };
+
+  const toggleHabit = (habitId) => {
+    const today = new Date().toDateString();
+    setHabits(habits.map(habit => {
+      if (habit.id === habitId) {
+        const isCompletedToday = habit.completedDates.includes(today);
+        return {
+          ...habit,
+          completedDates: isCompletedToday
+            ? habit.completedDates.filter(date => date !== today)
+            : [...habit.completedDates, today]
+        };
+      }
+      return habit;
+    }));
+  };
+
+  const addHabit = (name, icon) => {
+    const newHabit = {
+      id: Date.now(),
+      name,
+      icon,
+      completedDates: []
+    };
+    setHabits([...habits, newHabit]);
+  };
+
+  const deleteHabit = (habitId) => {
+    setHabits(habits.filter(habit => habit.id !== habitId));
+  };
+
   const resetApp = () => {
     localStorage.removeItem('clarityAppData');
     setUser(null);
@@ -95,6 +170,13 @@ export const AppProvider = ({ children }) => {
     setCheckIns([]);
     setSelectedMentor(null);
     setSubscriptionTier('free');
+    setJournalEntries([]);
+    setBookmarkedResources([]);
+    setHabits([
+      { id: 1, name: 'Morning reflection', icon: '☀️', completedDates: [] },
+      { id: 2, name: 'Evening gratitude', icon: '🌙', completedDates: [] },
+      { id: 3, name: 'Read 10 pages', icon: '📖', completedDates: [] }
+    ]);
   };
 
   const value = {
@@ -105,6 +187,9 @@ export const AppProvider = ({ children }) => {
     checkIns,
     selectedMentor,
     subscriptionTier,
+    journalEntries,
+    bookmarkedResources,
+    habits,
     GOAL_STAGES,
     completeOnboarding,
     updateGoal,
@@ -112,6 +197,13 @@ export const AppProvider = ({ children }) => {
     addCheckIn,
     setSelectedMentor,
     updateSubscription,
+    addJournalEntry,
+    updateJournalEntry,
+    deleteJournalEntry,
+    toggleBookmark,
+    toggleHabit,
+    addHabit,
+    deleteHabit,
     resetApp
   };
 

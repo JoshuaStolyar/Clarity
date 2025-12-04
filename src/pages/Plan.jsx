@@ -1,4 +1,5 @@
 import { useApp } from '../context/AppContext';
+import HabitTracker from '../components/HabitTracker';
 import './Plan.css';
 
 const STAGES_INFO = {
@@ -97,6 +98,9 @@ function Plan() {
             </ul>
           </div>
         </div>
+
+        {/* Habit Tracker */}
+        <HabitTracker />
 
         {/* Check-In History */}
         {checkIns.length > 0 && (

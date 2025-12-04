@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
+import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
 import Today from './pages/Today';
 import Discover from './pages/Discover';
 import Plan from './pages/Plan';
 import Me from './pages/Me';
 import Coach from './pages/Coach';
+import Journal from './pages/Journal';
 import Onboarding from './pages/Onboarding';
 import Pricing from './pages/Pricing';
 import './App.css';
@@ -34,8 +36,10 @@ function AppRoutes() {
           <Route path="plan" element={<Plan />} />
           <Route path="me" element={<Me />} />
           <Route path="coach" element={<Coach />} />
+          <Route path="journal" element={<Journal />} />
           <Route path="pricing" element={<Pricing />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
@@ -43,9 +47,11 @@ function AppRoutes() {
 
 function App() {
   return (
-    <AppProvider>
-      <AppRoutes />
-    </AppProvider>
+    <ErrorBoundary>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -1,36 +1,36 @@
 .daily-checkin-card {
   background: white;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 18px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .checkin-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #3730a3;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
 }
 
 .checkin-question {
-  font-size: 15px;
+  font-size: 14px;
   color: #1f2937;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   line-height: 1.5;
 }
 
 .mood-selector {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .mood-button {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   background: #f3f4f6;
   cursor: pointer;
   transition: all 0.2s;
@@ -42,6 +42,7 @@
 
 .mood-button:hover {
   background: #e5e7eb;
+  transform: scale(1.05);
 }
 
 .mood-button.selected {
@@ -50,27 +51,27 @@
 }
 
 .mood-emoji {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .mood-label {
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   color: #6b7280;
-  margin: 0 0 20px 0;
+  margin: 0 0 14px 0;
   min-height: 20px;
 }
 
 .checkin-input {
   width: 100%;
-  padding: 16px;
+  padding: 12px;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 15px;
+  border-radius: 10px;
+  font-size: 14px;
   font-family: inherit;
   resize: none;
   background: #f9fafb;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   box-sizing: border-box;
 }
 
@@ -86,21 +87,23 @@
 
 .checkin-button {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   background: #6366f1;
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .checkin-button:hover {
   background: #4f46e5;
+  transform: translateY(-1px);
 }
 
 .checkin-button:active {
   background: #4338ca;
+  transform: translateY(0);
 }

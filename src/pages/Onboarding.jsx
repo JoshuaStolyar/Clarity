@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
+import SubscriptionModal from '../components/SubscriptionModal';
 import './Onboarding.css';
 
 const PRESET_GOALS = [
@@ -14,6 +15,7 @@ function Onboarding() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [selectedGoal, setSelectedGoal] = useState('');
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const navigate = useNavigate();
   const { completeOnboarding, updateGoal } = useApp();
 
@@ -25,8 +27,13 @@ function Onboarding() {
     } else if (step === 3 && selectedGoal) {
       completeOnboarding({ name, age });
       updateGoal(selectedGoal);
-      navigate('/');
+      setShowSubscriptionModal(true);
     }
+  };
+
+  const handleSubscriptionModalClose = () => {
+    setShowSubscriptionModal(false);
+    navigate('/');
   };
 
   const handleGoalSelect = (goal) => {
@@ -34,8 +41,13 @@ function Onboarding() {
   };
 
   return (
-    <div className="onboarding-container">
-      <div className="onboarding-content">
+    <>
+      <SubscriptionModal
+        isOpen={showSubscriptionModal}
+        onClose={handleSubscriptionModalClose}
+      />
+      <div className="onboarding-container">
+        <div className="onboarding-content">
         {step === 1 && (
           <div className="onboarding-step">
             <h1 className="onboarding-title">Welcome to Clarity</h1>
@@ -137,7 +149,8 @@ function Onboarding() {
           <div className={`progress-dot ${step >= 3 ? 'active' : ''}`}></div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 
